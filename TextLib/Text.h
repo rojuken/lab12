@@ -117,13 +117,13 @@ bool TextIter::GoNextChar()
     return true;
   }
 
-  if (node->GetLevel() == 3 && node->GetNext() != nullptr) 
+  if (node->GetLevel() == 3 && node->GetNext() != NULL)
   {
     node = node->GetNext(); 
     return true;
   }
 
-  if (node->GetLevel() == 3 && node->GetNext() == nullptr) 
+  if (node->GetLevel() == 3 && node->GetNext() == NULL)
   {
     if (st.IsEmpty()) 
     {
@@ -132,7 +132,7 @@ bool TextIter::GoNextChar()
 
     TextNode* temp = st.Get(); 
 
-    if (temp->GetNext() != nullptr)
+    if (temp->GetNext() != NULL)
     {
       st.Push(temp->GetNext()); 
       node = temp->GetNext()->GetDown(); 
@@ -146,7 +146,7 @@ bool TextIter::GoNextChar()
 
 bool TextIter::IsEnd()
 {
-  if (node == nullptr) 
+  if (node == NULL)
   {
     return true;
   }
@@ -156,12 +156,12 @@ bool TextIter::IsEnd()
     return false;
   }
 
-  if (node->GetLevel() == 3 && node->GetNext() != nullptr) 
+  if (node->GetLevel() == 3 && node->GetNext() != NULL)
   {
     return false; 
   }
 
-  if (node->GetLevel() == 3 && node->GetNext() == nullptr)
+  if (node->GetLevel() == 3 && node->GetNext() == NULL)
   {
     if (st.IsEmpty()) 
     {
@@ -169,7 +169,7 @@ bool TextIter::IsEnd()
     }
 
     TextNode* prev = st.Get(); 
-    if (prev->GetNext() != nullptr) 
+    if (prev->GetNext() != NULL)
     {
       return false; 
     }
@@ -546,12 +546,12 @@ void Text::Delete(int count, TextIter i)
 
   if (prev.Get()->GetNext() == i.Get()) 
   {
-    prev.Get()->SetNext(nullptr); 
+    prev.Get()->SetNext(NULL);
   }
 
   else
   {
-    prev.Get()->SetDown(nullptr); 
+    prev.Get()->SetDown(NULL);
   }
 
   if (stack[0].IsEmpty()) 

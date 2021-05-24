@@ -50,15 +50,15 @@ std::ostream& operator<<(std::ostream& o, TextNode& t)
   if (t.level == 3) 
   {
     o << t.c; 
-    if (t.next != nullptr) 
+    if (t.next != NULL) 
       o << *(t.next);
   }
   else 
   {
-    if (t.down != nullptr)  
+    if (t.down != NULL)
       o << *(t.down); 
 
-    if (t.next != nullptr) 
+    if (t.next != NULL)
       o << *(t.next); 
   }
 
@@ -67,8 +67,8 @@ std::ostream& operator<<(std::ostream& o, TextNode& t)
 
 TextNode::TextNode(int _l, char _c)
 {
-  next = nullptr; 
-  down = nullptr; 
+  next = NULL;
+  down = NULL;
   c = _c;
   level = _l;
 }
@@ -79,7 +79,7 @@ TextNode::TextNode(char* _c, int l)
     throw - 1;
 
   if (l == 1) { 
-    next = nullptr;
+    next = NULL;
     c = 0;
     level = l;
     int size = strlen(_c); 
@@ -107,16 +107,16 @@ TextNode::TextNode(char* _c, int l)
             lcur->SetNext(new TextNode(3, _c[j])); 
             lcur = lcur->GetNext(); 
           }
-          lcur->SetNext(nullptr); 
+          lcur->SetNext(NULL);
           start = i + 1; 
         }
       }
-      wcur->SetNext(nullptr);
+      wcur->SetNext(NULL);
     }
   }
 
   if (l == 2) { 
-    next = nullptr; 
+    next = NULL;
     c = 0;
     level = l;
     int size = strlen(_c); 
@@ -130,7 +130,7 @@ TextNode::TextNode(char* _c, int l)
         lcur->SetNext(new TextNode(3, _c[i]));  
         lcur = lcur->GetNext(); 
       }
-      lcur->SetNext(nullptr); 
+      lcur->SetNext(NULL);
     }
   }
 
@@ -138,15 +138,15 @@ TextNode::TextNode(char* _c, int l)
   {
     c = _c[0]; 
     level = l;
-    next = nullptr; 
-    down = nullptr; 
+    next = NULL;
+    down = NULL;
   }
 }
 
 TextNode::TextNode(const TextNode& _node)
 {
-  next = nullptr; 
-  down = nullptr; 
+  next = NULL;
+  down = NULL;
   c = _node.c;
   level = _node.level;
 }
@@ -274,8 +274,8 @@ void TextNode::operator delete(void* p)
   if ((firstFree == 0) && (textNodes == 0)) 
     throw "Error";
 
-  node->next = nullptr; 
-  node->down = nullptr; 
+  node->next = NULL;
+  node->down = NULL;
   node->c = 0; 
   node->level = 3; 
 
