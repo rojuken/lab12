@@ -1,0 +1,13 @@
+language: cpp
+compiler:
+  - gcc
+  - clang
+before_script:
+  - mkdir ../build
+  - cd ../build
+script:
+  - cmake ../lab12
+  - make -j
+  - ./test/MP2_TESTS
+notifications:
+  email: false
